@@ -1,0 +1,123 @@
+body 
+{
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to bottom right, #6889ff, #c668ff);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav 
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 200px; 
+}
+
+  
+.navbar-nav .nav-item 
+{
+    display: flex;
+    align-items: center;
+}
+
+h1 
+{
+    color: white;
+    margin-left: 30px;
+    font-size: 27px;
+}
+
+.navbar .fa 
+{
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+  
+.contact 
+{
+    background-image: linear-gradient(to bottom , #7b96f8, #cf88fc);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    box-shadow: 24px 66px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+ 
+h2 
+{
+    color: #333;
+    margin-bottom: 10px;
+}
+  
+input, textarea 
+{
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+  
+.submit {
+    background-color: #252525;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto; 
+    box-shadow: 4px 2px 5px black;
+}
+  
+.submit:hover 
+{
+    background-color: #3f3f3f;
+}
+  
+#response 
+{
+    margin-top: 10px;
+    font-weight: bold;
+}
+footer {
+    background-color: #252525;
+    color: #fff;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+footer h4 {
+    color: #fff;
+}
+
+footer p {
+    font-size: 14px;
+    color: #ccc;
+}
+.navbar {
+    padding: 10px 0;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.navbar-collapse {
+    padding-left: 0;
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 5px 15px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopLoom | Dashboard</title>
+  <link rel="stylesheet" href="Dashboard.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/a2e0e9c36d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header class="main-header">
+    <h1><i class="fas fa-store"></i> ShopLoom Dashboard</h1>
+  </header>
+
+  <div class="dashboard-container">
+
+    <!-- General Products -->
+    <div class="dashboard-section">
+      <h2><i class="fas fa-boxes"></i> General Products</h2>
+      <div class="product-list" id="productList"></div>
+    </div>
+
+    <!-- Electronics Products -->
+    <div class="dashboard-section">
+      <h2><i class="fas fa-plug"></i> Electronics Products</h2>
+      <div class="product-list" id="ElectronicsproductList"></div>
+    </div>
+
+    <!-- Female Products -->
+    <div class="dashboard-section">
+      <h2><i class="fas fa-female"></i> Female Products</h2>
+      <div class="product-list" id="femaleProductList"></div>
+    </div>
+
+     <!-- Male Products -->
+     <div class="dashboard-section">
+      <h2><i class="fas fa-male"></i> Male Products</h2>
+      <div class="product-list" id="maleProductList"></div>
+    </div>
+
+    <!-- Kitchen Essentials -->
+    <div class="dashboard-section">
+      <h2><i class="fas fa-kitchen-set"></i> Kitchen Essentials</h2>
+      <div class="product-list" id="KitchenEssentialsList"></div>
+    </div>
+
+    <!-- Cart -->
+    <div class="dashboard-section">
+      <h2><i class="fas fa-shopping-cart"></i> Cart</h2>
+      <ul id="cartList"></ul>
+      <button id="clearCartBtn">🗑️ Remove All</button>
+    </div>
+
+    <!-- Add to cart badge -->
+    <h2>
+      <i class="fas fa-shopping-cart position-relative">
+        <span id="cartBadge" class="position-absolute translate-middle badge rounded-pill bg-warning">
+          0
+        </span>
+      </i> Cart
+    </h2>
+
+    <!-- Home Page -->
+    <div class="returnhome">
+      <a href="Home.html" class="home">
+        <i class="fas fa-home"></i> Return Home
+      </a>
+    </div>
+
+  </div>
+  
+  
+
+  <!-- footer code -->
+  <footer style="background-color: #252525; padding-top: 40px; margin: 0;">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 mb-4 mb-lg-0">
+                    <h4 class="text-light">ShopLoom</h4>
+                    <p class="text-secondary">
+                        A stylish and user-friendly e-commerce website offering a wide range of quality products, including fashion, electronics, and home essentials. With a modern design, secure checkout, and regular deals, it ensures a smooth shopping experience. Features like newsletter subscriptions and smart search filters keep customers engaged and updated with the latest arrivals and exclusive offers.
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+                    <h4 class="text-light">Contact Us</h4>
+                    <p class="text-secondary">+01 1234567890</p>
+                    <p class="text-secondary">+01 9876543210</p>
+                    <p class="text-secondary">shoploom@gmail.com</p>
+                    <ul class="list-unstyled d-flex gap-3">
+                        <li><a href="#"><i class="fa-brands fa-facebook-f fa-sm" style="color: #ffffff;"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter fa-sm" style="color: #ffffff;"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin-in fa-sm" style="color: #ffffff;"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram fa-sm" style="color: #ffffff;"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="text-white">
+
+            <div class="text-center">
+                <p class="text-light text-center" style="text-decoration: underline #252525;">2025 ShopLoom. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script src="Dashboard.js"></script>
+  <script>
+    // find the number of cart items
+    function updateBadge() 
+    {
+    const badge = document.getElementById("cartBadge");
+    if(badge)badge.textContent = cartItems.length;
+    }
+
+    // For adding items
+    function addToCart(itemName) 
+    {
+      cartItems.push(itemName);
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      Cart();
+      updateBadge();
+    }
+
+    // for removing items
+    function removeItem(index) 
+    {
+      cartItems.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      Cart();
+      updateBadge();
+    }
+
+    // for clearing items
+    function clearCart() 
+    {
+      cartItems = [];
+      localStorage.removeItem("cart");
+      Cart();
+      updateBadge();
+    }
+
+    window.onload = function () 
+    {
+      ProductList(generalProducts, "productList");
+      ProductList(femaleProducts, "femaleProductList", true);
+      ProductList(maleProducts, "maleProductList", true);
+      ProductList(kitchenEssentials, "KitchenEssentialsList", true);
+      ProductList(electronicsProducts, "ElectronicsproductList", true);  
+      Cart();
+      updateBadge();
+    };
+  </script>
+</body>
+</html>
